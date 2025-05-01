@@ -6,12 +6,12 @@ import {CharacterDetailsScreen} from './screens';
 const Stack = createNativeStackNavigator();
 
 export const CharacterDetailsStack = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name={CharacterDetailsStackRoutes.CharacterDetailsScreen}
-        children={CharacterDetailsScreen}
-      />
-    </Stack.Navigator>
-  );
+	return (
+		<Stack.Navigator>
+			<Stack.Screen
+				name={CharacterDetailsStackRoutes.CharacterDetailsScreen}
+				children={CharacterDetailsScreen}
+			/>
+		</Stack.Navigator>
+	);
 };
