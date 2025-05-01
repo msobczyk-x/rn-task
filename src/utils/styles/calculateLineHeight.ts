@@ -1,6 +1,6 @@
 export const calculateLineHeight = (
-  fontSize: number,
-  percentage = 100,
+	fontSize: number,
+	percentage = 100,
 ): number => {
-  return Math.round(fontSize * (percentage / 100));
+	return Math.round(fontSize * (percentage / 100));
 };
