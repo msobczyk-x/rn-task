@@ -1,45 +1,45 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "files": {
-    "include": ["**/*.ts", "**/*.tsx"],
-    "ignore": ["docs", ".expo", "ios", "android", "expo-env.d.ts"]
-  },
-  "formatter": {
-    "enabled": true
-  },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true,
-      "suspicious": {
-        "noEmptyInterface": "info",
-        "noExplicitAny": "info",
-        "noArrayIndexKey": "info"
-      },
-      "complexity": {
-        "noForEach": "off",
-        "noUselessSwitchCase": "off",
-        "noBannedTypes": "off"
-      },
-      "correctness": {
-        "useExhaustiveDependencies": "off",
-        "noUnusedImports": "warn",
-        "noChildrenProp": "warn"
-      }
-    }
-  },
-  "organizeImports": {
-    "enabled": true
-  },
-  "javascript": {
-    "formatter": {
-      "arrowParentheses": "asNeeded",
-      "bracketSameLine": true,
-      "bracketSpacing": false,
-      "quoteStyle": "single",
-      "trailingCommas": "all"
-    },
-    "globals": [],
-    "jsxRuntime": "reactClassic"
-  }
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"files": {
+		"include": ["**/*.ts", "**/*.tsx"],
+		"ignore": ["docs", ".expo", "ios", "android", "expo-env.d.ts"]
+	},
+	"formatter": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"suspicious": {
+				"noEmptyInterface": "info",
+				"noExplicitAny": "info",
+				"noArrayIndexKey": "info"
+			},
+			"complexity": {
+				"noForEach": "off",
+				"noUselessSwitchCase": "off",
+				"noBannedTypes": "off"
+			},
+			"correctness": {
+				"useExhaustiveDependencies": "off",
+				"noUnusedImports": "warn",
+				"noChildrenProp": "warn"
+			}
+		}
+	},
+	"organizeImports": {
+		"enabled": true
+	},
+	"javascript": {
+		"formatter": {
+			"arrowParentheses": "asNeeded",
+			"bracketSameLine": true,
+			"bracketSpacing": false,
+			"quoteStyle": "single",
+			"trailingCommas": "all"
+		},
+		"globals": [],
+		"jsxRuntime": "reactClassic"
+	}
 }
