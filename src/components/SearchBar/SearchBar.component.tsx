@@ -1,58 +1,76 @@
-// import { useRef } from "react";
-// import { Pressable, TextInput } from "react-native";
-// import { Search } from "../icons";
+import {useRef, useEffect, useState} from 'react';
+import {Pressable, TextInput} from 'react-native';
+import {Search} from '../icons';
+import {useAtom} from 'jotai';
+import {searchQueryAtom} from '@/stores/filters';
+import {theme} from '@/constants/theme';
+import {styles} from './SearchBar.styled';
 
-// export default function SearchInput() {
-//   const
-//   const inputRef = useRef<TextInput>(null);
+const DEBOUNCE_DELAY = 300;
 
-//   const handleSubmit = () => {
-//     // if (!query || pathname.includes("search")) return;
-//     // router.push("/(protected)/(tabs)/search");
-//   };
+const SearchBar = () => {
+  const [query, setQuery] = useAtom(searchQueryAtom);
+  const [inputValue, setInputValue] = useState(query);
+  const inputRef = useRef<TextInput>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-//   const handleFocus = () => {
-//     inputRef.current?.focus();
-//   };
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
-//   return (
-//     <Pressable style={styles.container} onPress={handleFocus}>
-//       <Search />
-//       <TextInput
-//         ref={inputRef}
-//         returnKeyType="search"
-//         inputMode="search"
-//         placeholder="Search videos"
-//         onSubmitEditing={(event) => {
-//           handleSubmit();
-//         }}
-//         onBlur={() => handleSubmit()}
-//         onChange={(e) => setQuery(e.nativeEvent.text)}
-//         defaultValue={query}
-//         style={styles.input}
-//         placeholderTextColor={theme.colors.textPlaceholder}
-//         autoCorrect={false}
-//       />
-//     </Pressable>
-//   );
-// }
+  const debouncedSetQuery = (text: string) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
 
-// const styles = StyleSheet.create((theme) => ({
-//   container: {
-//     flex: 1,
-//     flexDirection: "row",
-//     alignItems: "center",
-//     height: 44,
-//     borderColor: theme.colors.primary,
-//     borderWidth: 2,
-//     borderRadius: theme.padding(2),
-//     paddingHorizontal: theme.padding(1.5),
-//     backgroundColor: theme.colors.whiteBackground,
-//     gap: theme.gap(1),
-//   },
-//   input: {
-//     ...theme.fonts.bodyLarge(false),
-//     flex: 1,
-//     color: theme.colors.textPrimary,
-//   },
-// }));
+    timeoutRef.current = setTimeout(() => {
+      setQuery(text);
+    }, DEBOUNCE_DELAY);
+  };
+
+  const handleInputChange = (e: any) => {
+    const text = e.nativeEvent.text;
+    setInputValue(text);
+    debouncedSetQuery(text);
+  };
+
+  const handleSubmit = (text: string) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    setInputValue(text);
+    setQuery(text);
+  };
+
+  const handleFocus = () => {
+    inputRef.current?.focus();
+  };
+
+  return (
+    <Pressable style={styles.container} onPress={handleFocus}>
+      <Search />
+      <TextInput
+        ref={inputRef}
+        returnKeyType="search"
+        inputMode="search"
+        placeholder="Search the characters"
+        onSubmitEditing={e => {
+          handleSubmit(e.nativeEvent.text);
+        }}
+        onBlur={e => handleSubmit(e.nativeEvent.text)}
+        onChange={handleInputChange}
+        value={inputValue}
+        style={styles.input}
+        placeholderTextColor={theme.colors.mediumGreen}
+        autoCorrect={false}
+      />
+    </Pressable>
+  );
+};
+
+export default SearchBar;
