@@ -1,3 +1,4 @@
+import {Typography} from '@/components/ui/Typography';
 import {theme} from '@/constants/theme';
 import httpClient from '@/lib/httpClient';
 import useCharactersList from '@/services/api/useCharactersList';
@@ -53,6 +54,15 @@ const CharacterListScreen = () => {
 					}
 					return null;
 				}}
+				ListEmptyComponent={() =>
+					isLoading ? (
+						<ActivityIndicator size={'large'} />
+					) : (
+						<View style={styles.emptyListContainer}>
+							<Typography variant="bodyText">No characters found</Typography>
+						</View>
+					)
+				}
 				renderItem={({item}) => (
 					<CharacterListItem
 						name={item.name}

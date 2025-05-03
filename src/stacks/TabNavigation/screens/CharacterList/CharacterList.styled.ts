@@ -15,4 +15,9 @@ export const styles = StyleSheet.create({
 	list: {
 		backgroundColor: theme.colors.background,
 	},
+	emptyListContainer: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
 });
