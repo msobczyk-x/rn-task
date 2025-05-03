@@ -11,9 +11,11 @@ const CardFeature = ({label, value}: CardFeatureProps) => {
 			<Typography style={styles.labelText} variant="labelSmall">
 				{label}
 			</Typography>
-			<Typography style={styles.valueText} variant="bodyText">
-				{value}
-			</Typography>
+			<View style={{flexDirection: 'row'}}>
+				<Typography style={styles.valueText} variant="bodyText">
+					{value}
+				</Typography>
+			</View>
 		</View>
 	);
 };

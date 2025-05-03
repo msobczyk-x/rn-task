@@ -4,7 +4,8 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'column',
-		height: 55,
+		height: 'auto',
+		minHeight: 55,
 		padding: 8,
 		gap: 4,
 	},
@@ -14,5 +15,7 @@ export const styles = StyleSheet.create({
 	},
 	valueText: {
 		color: theme.colors.darkGreen,
+		flex: 1,
+		flexShrink: 1,
 	},
 });

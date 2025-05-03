@@ -11,7 +11,8 @@ export const styles = StyleSheet.create({
 	image: {
 		width: '100%',
 		height: '100%',
-		resizeMode: 'cover',
+		resizeMode: 'contain',
+		borderRadius: 24,
 	},
 	small: {
 		width: 200,
@@ -25,5 +26,6 @@ export const styles = StyleSheet.create({
 		position: 'absolute',
 		bottom: 8,
 		right: 8,
+		zIndex: 10,
 	},
 });
