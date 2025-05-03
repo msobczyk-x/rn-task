@@ -98,5 +98,5 @@ export interface Info<T> {
 		/** Link to the previous page (if it exists) */
 		prev: string | null;
 	};
-	results?: T;
+	results: T;
 }
