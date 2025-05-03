@@ -15,12 +15,12 @@ export const styles = StyleSheet.create({
 		borderRadius: 24,
 	},
 	small: {
-		width: 200,
-		height: 200,
+		minWidth: 200,
+		aspectRatio: 1,
 	},
 	large: {
-		width: 310,
-		height: 310,
+		width: '100%',
+		aspectRatio: 1,
 	},
 	buttonContainer: {
 		position: 'absolute',

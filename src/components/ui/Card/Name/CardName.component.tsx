@@ -1,6 +1,6 @@
 import {View} from 'react-native';
 import {Typography} from '../../Typography';
-import {styles} from '../Feature/CardFeature.styled';
+import {styles} from './CardName.styled';
 type CardNameProps = {
 	name: string;
 };
@@ -8,8 +8,12 @@ type CardNameProps = {
 const CardName = ({name}: CardNameProps) => {
 	return (
 		<View style={[styles.container]}>
-			<Typography style={styles.labelText}>Label</Typography>
-			<Typography style={styles.valueText}>{name}</Typography>
+			<Typography variant="labelSmall" style={styles.labelText}>
+				Label
+			</Typography>
+			<Typography variant="heading" style={styles.valueText}>
+				{name}
+			</Typography>
 		</View>
 	);
 };
