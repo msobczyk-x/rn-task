@@ -5,21 +5,21 @@ import {Text} from 'react-native';
 import {styles} from './Typography.styled';
 
 type TypographyProps = TextProps & {
-  children: React.ReactNode;
-  variant?: FontVariant;
+	children: React.ReactNode;
+	variant?: FontVariant;
 };
 
 const Typography = ({
-  children,
-  variant = 'bodyText',
-  style,
-  ...props
+	children,
+	variant = 'bodyText',
+	style,
+	...props
 }: TypographyProps) => {
-  return (
-    <Text style={[styles[variant], style]} {...props}>
-      {children}
-    </Text>
-  );
+	return (
+		<Text style={[styles[variant], style]} {...props}>
+			{children}
+		</Text>
+	);
 };
 
 export default Typography;
