@@ -2,7 +2,25 @@ import {calculateLetterSpacing, calculateLineHeight} from '@/utils/styles';
 import type {TextStyle} from 'react-native';
 import {Platform} from 'react-native';
 
-export const colors: Record<string, string> = {
+export type FontVariant =
+	| 'labelSmall'
+	| 'labelMedium'
+	| 'buttonText'
+	| 'bodyText'
+	| 'bodyTextSmall'
+	| 'heading';
+
+export type ColorVariant =
+	| 'primary'
+	| 'white'
+	| 'darkGreen'
+	| 'mediumGreen'
+	| 'lightGreen'
+	| 'greyishGreen'
+	| 'accent'
+	| 'background';
+
+export const colors: Record<ColorVariant, string> = {
 	primary: '#224229',
 	white: '#ffffff',
 	darkGreen: '#162c1b',
@@ -13,11 +31,11 @@ export const colors: Record<string, string> = {
 	background: '#f4f6f5',
 };
 
-const fonts: Record<string, TextStyle> = {
+const fonts: Record<FontVariant, TextStyle> = {
 	labelSmall: {
 		fontFamily: 'DMMono',
 		fontSize: 12,
-		lineHeight: calculateLineHeight(12, 100),
+		lineHeight: calculateLineHeight(12, 0),
 		fontWeight: 500,
 		textTransform: 'uppercase',
 		letterSpacing: calculateLetterSpacing(12, 8),
@@ -25,7 +43,7 @@ const fonts: Record<string, TextStyle> = {
 	labelMedium: {
 		fontFamily: 'DMMono',
 		fontSize: 14,
-		lineHeight: calculateLineHeight(14, 100),
+		lineHeight: calculateLineHeight(14, 0),
 		fontWeight: 500,
 		textTransform: 'uppercase',
 		letterSpacing: calculateLetterSpacing(14, 0),
@@ -33,7 +51,7 @@ const fonts: Record<string, TextStyle> = {
 	buttonText: {
 		fontFamily: 'DMMono',
 		fontSize: 14,
-		lineHeight: calculateLineHeight(14, 100),
+		lineHeight: calculateLineHeight(14, 0),
 		fontWeight: 400,
 		textTransform: 'uppercase',
 		letterSpacing: calculateLetterSpacing(14, 0),
@@ -41,14 +59,14 @@ const fonts: Record<string, TextStyle> = {
 	bodyText: {
 		fontFamily: 'Inter',
 		fontSize: 16,
-		lineHeight: calculateLineHeight(16, 100),
+		lineHeight: calculateLineHeight(16, 0),
 		fontWeight: 400,
 		letterSpacing: calculateLetterSpacing(16, -2),
 	},
 	bodyTextSmall: {
 		fontFamily: 'Inter',
 		fontSize: 12,
-		lineHeight: calculateLineHeight(12, 100),
+		lineHeight: calculateLineHeight(12, 0),
 		fontWeight: 400,
 		letterSpacing: calculateLetterSpacing(12, -2),
 	},
@@ -56,7 +74,7 @@ const fonts: Record<string, TextStyle> = {
 		fontFamily: 'Inter',
 		fontWeight: 500,
 		fontSize: 36,
-		lineHeight: calculateLineHeight(36, 100),
+		lineHeight: calculateLineHeight(36, 0),
 		letterSpacing: calculateLetterSpacing(36, -6),
 	},
 };

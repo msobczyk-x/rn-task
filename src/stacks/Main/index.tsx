@@ -1,5 +1,7 @@
+import {Header} from '@/components/navigation/Header';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
+import {StyleSheet, View} from 'react-native';
 import {CharacterDetailsStack} from '../CharacterDetails';
 import {TabNavigationStack} from '../TabNavigation';
 import {MainStackRoutes} from './Main.routes';
@@ -8,7 +10,16 @@ const Tab = createNativeStackNavigator();
 
 export const MainStack = () => {
 	return (
-		<Tab.Navigator>
+		<Tab.Navigator
+			screenOptions={{
+				animation: 'simple_push',
+			}}
+			layout={({children}) => (
+				<View style={styles.layoutContainer}>
+					<Header />
+					{children}
+				</View>
+			)}>
 			<Tab.Screen
 				name={MainStackRoutes.TabNavigationStack}
 				component={TabNavigationStack}
@@ -22,3 +33,9 @@ export const MainStack = () => {
 		</Tab.Navigator>
 	);
 };
+
+const styles = StyleSheet.create({
+	layoutContainer: {
+		flex: 1,
+	},
+});

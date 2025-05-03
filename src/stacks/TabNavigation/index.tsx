@@ -7,7 +7,7 @@ const Tab = createBottomTabNavigator();
 
 export const TabNavigationStack = () => {
 	return (
-		<Tab.Navigator>
+		<Tab.Navigator screenOptions={{animation: 'shift'}}>
 			<Tab.Screen
 				name="Characters"
 				component={CharacterListScreen}
