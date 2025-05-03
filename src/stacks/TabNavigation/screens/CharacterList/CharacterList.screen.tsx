@@ -3,8 +3,10 @@ import {theme} from '@/constants/theme';
 import httpClient from '@/lib/httpClient';
 import useCharactersList from '@/services/api/useCharactersList';
 import {CharacterListItem} from '@/stacks/TabNavigation/screens/components/CharacterListItem';
+import {searchQueryAtom} from '@/stores/filters';
 import {useNavigation} from '@react-navigation/native';
 import {FlashList} from '@shopify/flash-list';
+import {useAtom} from 'jotai';
 import React, {useCallback, useMemo} from 'react';
 import {ActivityIndicator, View} from 'react-native';
 import type {MainStackNavigationProp} from '../../../Main/Main.routes';
@@ -12,6 +14,7 @@ import {CharacterListHeader} from '../components/CharacterListHeader';
 import {styles} from './CharacterList.styled';
 
 const CharacterListScreen = () => {
+	const [searchQuery] = useAtom(searchQueryAtom);
 	const {navigate} = useNavigation<MainStackNavigationProp>();
 	const {
 		data,
@@ -21,7 +24,9 @@ const CharacterListScreen = () => {
 		hasNextPage,
 		isFetchingNextPage,
 		fetchNextPage,
-	} = useCharactersList(httpClient);
+	} = useCharactersList(httpClient, {
+		name: searchQuery,
+	});
 
 	const listData = useMemo(
 		() => data?.pages.flatMap(data => data.results) || [],
@@ -35,10 +40,12 @@ const CharacterListScreen = () => {
 
 	return (
 		<View style={styles.container}>
+			<View style={styles.header}>
+				<CharacterListHeader />
+			</View>
 			<FlashList
 				data={listData}
 				estimatedItemSize={224}
-				ListHeaderComponent={() => <CharacterListHeader />}
 				contentContainerStyle={styles.listContainer}
 				showsVerticalScrollIndicator={false}
 				onEndReached={handleLoadMore}

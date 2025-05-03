@@ -20,4 +20,8 @@ export const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
+	header: {
+		padding: 16,
+		paddingBottom: 32,
+	},
 });
