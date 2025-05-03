@@ -3,7 +3,8 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'column',
-		height: 80,
+		minHeight: 80,
+		height: 'auto',
 		padding: 8,
 		gap: 4,
 	},

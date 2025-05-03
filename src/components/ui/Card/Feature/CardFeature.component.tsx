@@ -1,13 +1,15 @@
 import {View} from 'react-native';
+import type {StyleProp, ViewStyle} from 'react-native';
 import {Typography} from '../../Typography';
 import {styles} from './CardFeature.styled';
 type CardFeatureProps = {
 	label: string;
 	value: string;
+	style?: StyleProp<ViewStyle>;
 };
-const CardFeature = ({label, value}: CardFeatureProps) => {
+const CardFeature = ({label, value, style}: CardFeatureProps) => {
 	return (
-		<View style={[styles.container]}>
+		<View style={[styles.container, style]}>
 			<Typography style={styles.labelText} variant="labelSmall">
 				{label}
 			</Typography>
