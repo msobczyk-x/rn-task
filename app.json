@@ -29,10 +29,10 @@
         "expo-font",
         {
           "fonts": [
-            "./assets/fonts/DMMono-Regular.ttf",
-            "./assets/fonts/DMMono-Medium.ttf",
-            "./assets/fonts/Inter-Regular.ttf",
-            "./assets/fonts/Inter-Medium.ttf"
+            "./assets/fonts/DMMono/DMMono-Regular.ttf",
+            "./assets/fonts/DMMono/DMMono-Medium.ttf",
+            "./assets/fonts/Inter/Inter-Regular.ttf",
+            "./assets/fonts/Inter/Inter-Medium.ttf"
           ],
           "android": {
             "fonts": [
@@ -40,12 +40,12 @@
                 "fontFamily": "Inter",
                 "fontDefinitions": [
                   {
-                    "path": "./assets/fonts/Inter-Regular.ttf",
+                    "path": "./assets/fonts/Inter/Inter-Regular.ttf",
                     "weight": "400",
                     "style": "normal"
                   },
                   {
-                    "path": "./assets/fonts/Inter-Medium.ttf",
+                    "path": "./assets/fonts/Inter/Inter-Medium.ttf",
                     "weight": "500",
                     "style": "normal"
                   }
@@ -55,12 +55,12 @@
                 "fontFamily": "DMMono",
                 "fontDefinitions": [
                   {
-                    "path": "./assets/fonts/DMMono-Regular.ttf",
+                    "path": "./assets/fonts/DMMono/DMMono-Regular.ttf",
                     "weight": "400",
                     "style": "normal"
                   },
                   {
-                    "path": "./assets/fonts/DMMono-Medium.ttf",
+                    "path": "./assets/fonts/DMMono/DMMono-Medium.ttf",
                     "weight": "500",
                     "style": "normal"
                   }
@@ -70,10 +70,10 @@
           },
           "ios": {
             "fonts": [
-              "./assets/fonts/DMMono-Regular.ttf",
-              "./assets/fonts/DMMono-Medium.ttf",
-              "./assets/fonts/Inter-Regular.ttf",
-              "./assets/fonts/Inter-Medium.ttf"
+              "./assets/fonts/DMMono/DMMono-Regular.ttf",
+              "./assets/fonts/DMMono/DMMono-Medium.ttf",
+              "./assets/fonts/Inter/Inter-Regular.ttf",
+              "./assets/fonts/Inter/Inter-Medium.ttf"
             ]
           }
         }
