@@ -1,20 +1,25 @@
-import {Star} from '@/components/icons';
+import {StarContained, StarOutlined} from '@/components/icons';
 import {Button} from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import {theme} from '@/constants/theme';
+import {likedCharactersActions, likedCharactersAtom} from '@/stores/likes';
 import type {Character} from '@/types/api';
+import {useAtom, useAtomValue} from 'jotai';
+import {useMemo} from 'react';
 import {View} from 'react-native';
 import {styles} from './CharacterCard.styled';
+
 type CharacterCardProps = {
 	character: Character;
-	isLiked: boolean;
-	onLikePress: () => void;
 };
-const CharacterCard = ({
-	character,
-	isLiked,
-	onLikePress,
-}: CharacterCardProps) => {
+const CharacterCard = ({character}: CharacterCardProps) => {
+	const {likedCharacters} = useAtomValue(likedCharactersAtom);
+	const [, toggleLike] = useAtom(likedCharactersActions.like);
+	const isLiked = useMemo(() => {
+		if (!likedCharacters) return false;
+		return likedCharacters.includes(character.id);
+	}, [character, likedCharacters]);
+
 	return (
 		<Card style={styles.cardContainer}>
 			<Card.Image imageUrl={character.image} variant="large" />
@@ -49,14 +54,14 @@ const CharacterCard = ({
 				text={isLiked ? 'Remove from liked' : 'Add to liked'}
 				icon={
 					isLiked ? (
-						<Star variant={'contained'} color={theme.colors.accent} />
+						<StarContained color={theme.colors.accent} />
 					) : (
-						<Star variant={'outlined'} color={theme.colors.white} />
+						<StarOutlined color={theme.colors.white} />
 					)
 				}
 				variant="contained"
 				pressed={isLiked}
-				onPress={onLikePress}
+				onPress={() => toggleLike(character.id)}
 			/>
 		</Card>
 	);

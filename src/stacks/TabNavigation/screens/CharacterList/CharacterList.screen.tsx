@@ -6,7 +6,7 @@ import {CharacterListItem} from '@/stacks/TabNavigation/screens/components/Chara
 import {searchQueryAtom} from '@/stores/filters';
 import {useNavigation} from '@react-navigation/native';
 import {FlashList} from '@shopify/flash-list';
-import {useAtom} from 'jotai';
+import {useAtomValue} from 'jotai';
 import React, {useCallback, useMemo} from 'react';
 import {ActivityIndicator, View} from 'react-native';
 import type {MainStackNavigationProp} from '../../../Main/Main.routes';
@@ -14,7 +14,7 @@ import {CharacterListHeader} from '../components/CharacterListHeader';
 import {styles} from './CharacterList.styled';
 
 const CharacterListScreen = () => {
-	const [searchQuery] = useAtom(searchQueryAtom);
+	const searchQuery = useAtomValue(searchQueryAtom);
 	const {navigate} = useNavigation<MainStackNavigationProp>();
 	const {
 		data,
