@@ -1,6 +1,6 @@
 import {useMemo} from 'react';
 import type {TouchableOpacityProps} from 'react-native';
-import {Pressable} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import {Typography} from '../Typography';
 import {styles} from './Button.styled';
 
@@ -38,12 +38,15 @@ const Button = ({
 	}, [variant]);
 
 	return (
-		<Pressable style={[containerStyle, style]} {...props}>
+		<TouchableOpacity
+			activeOpacity={0.7}
+			style={[containerStyle, style]}
+			{...props}>
 			{icon ? icon : null}
 			<Typography variant="buttonText" style={textStyle}>
 				{text}
 			</Typography>
-		</Pressable>
+		</TouchableOpacity>
 	);
 };
 

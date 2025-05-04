@@ -6,10 +6,9 @@ export type FetchCharacterListParams = CharacterFilter;
 export default async function fetchCharacterList(
 	httpClient: HttpClient,
 	params: FetchCharacterListParams,
-	ids?: number[],
 ) {
 	const result = await httpClient
-		.get(`character${ids ? `/${ids.join(',')}` : ''}`, {
+		.get('character', {
 			searchParams: {
 				...params,
 			},

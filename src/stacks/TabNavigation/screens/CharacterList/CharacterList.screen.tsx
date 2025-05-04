@@ -3,7 +3,11 @@ import {theme} from '@/constants/theme';
 import httpClient from '@/lib/httpClient';
 import useCharactersList from '@/services/api/useCharactersList';
 import {CharacterListItem} from '@/stacks/TabNavigation/screens/components/CharacterListItem';
-import {searchQueryAtom} from '@/stores/filters';
+import {
+	searchQueryAtom,
+	speciesFilterAtom,
+	statusFilterAtom,
+} from '@/stores/filters';
 import {useNavigation} from '@react-navigation/native';
 import {FlashList} from '@shopify/flash-list';
 import {useAtomValue} from 'jotai';
@@ -11,10 +15,13 @@ import React, {useCallback, useMemo} from 'react';
 import {ActivityIndicator, View} from 'react-native';
 import type {MainStackNavigationProp} from '../../../Main/Main.routes';
 import {CharacterListHeader} from '../components/CharacterListHeader';
+import {Filter} from '../components/Filter';
 import {styles} from './CharacterList.styled';
 
 const CharacterListScreen = () => {
 	const searchQuery = useAtomValue(searchQueryAtom);
+	const speciesFilter = useAtomValue(speciesFilterAtom);
+	const statusFilter = useAtomValue(statusFilterAtom);
 	const {navigate} = useNavigation<MainStackNavigationProp>();
 	const {
 		data,
@@ -26,6 +33,8 @@ const CharacterListScreen = () => {
 		fetchNextPage,
 	} = useCharactersList(httpClient, {
 		name: searchQuery,
+		species: speciesFilter,
+		status: statusFilter,
 	});
 
 	const listData = useMemo(
@@ -47,6 +56,7 @@ const CharacterListScreen = () => {
 				data={listData}
 				estimatedItemSize={224}
 				contentContainerStyle={styles.listContainer}
+				ListHeaderComponent={() => <Filter />}
 				showsVerticalScrollIndicator={false}
 				onEndReached={handleLoadMore}
 				onEndReachedThreshold={0.5}
