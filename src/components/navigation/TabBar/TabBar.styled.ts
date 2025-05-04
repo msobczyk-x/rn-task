@@ -11,11 +11,11 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 		paddingVertical: 16,
-		backgroundColor: theme.colors.primary,
+		backgroundColor: theme.colors.darkGreen,
 		gap: 4,
 	},
 	activeTabItem: {
-		backgroundColor: theme.colors.darkGreen,
+		backgroundColor: theme.colors.primary,
 	},
 	tabLabel: {
 		color: 'white',

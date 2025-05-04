@@ -3,6 +3,7 @@ import Close from './Close';
 import Expand from './Expand';
 import Logo from './Logo';
 import Search from './Search';
-import Star from './Star';
+import StarContained from './StarContained';
+import StarOutlined from './StarOutlined';
 
-export {Character, Star, Expand, Search, Close, Logo};
+export {Character, StarOutlined, StarContained, Expand, Search, Close, Logo};

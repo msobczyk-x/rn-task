@@ -1,4 +1,4 @@
-import {Character, Star} from '@/components/icons';
+import {Character, StarContained} from '@/components/icons';
 import {TabBar} from '@/components/navigation/TabBar';
 import {theme} from '@/constants/theme';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -28,7 +28,9 @@ export const TabNavigationStack = () => {
 				options={{
 					headerShown: false,
 					tabBarLabel: 'Liked characters',
-					tabBarIcon: () => <Star color={theme.colors.white} size={16} />,
+					tabBarIcon: () => (
+						<StarContained color={theme.colors.white} size={16} />
+					),
 				}}
 			/>
 		</Tab.Navigator>

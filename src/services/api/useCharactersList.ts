@@ -6,14 +6,19 @@ import {useInfiniteQuery} from '@tanstack/react-query';
 export default function useCharactersList(
 	httpClient: HttpClient,
 	filters = {} as Omit<CharacterFilter, 'page'>,
+	ids?: number[],
 ) {
 	return useInfiniteQuery<Info<Character[]>, Error>({
-		queryKey: ['character', 'list', filters],
+		queryKey: ['character', 'list', filters, ids],
 		queryFn: async ({pageParam}) => {
-			return await fetchCharacterList(httpClient, {
-				...filters,
-				page: pageParam as number,
-			});
+			return await fetchCharacterList(
+				httpClient,
+				{
+					...filters,
+					page: pageParam as number,
+				},
+				ids,
+			);
 		},
 		initialPageParam: 1,
 		getNextPageParam: lastPage => {

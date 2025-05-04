@@ -39,7 +39,7 @@ const Button = ({
 
 	return (
 		<Pressable style={[containerStyle, style]} {...props}>
-			{icon && icon}
+			{icon ? icon : null}
 			<Typography variant="buttonText" style={textStyle}>
 				{text}
 			</Typography>

@@ -1,7 +1,10 @@
-import {Star} from '@/components/icons';
+import {StarContained, StarOutlined} from '@/components/icons';
 import {Button} from '@/components/ui/Button';
 import {theme} from '@/constants/theme';
+import {likedCharactersActions, likedCharactersAtom} from '@/stores/likes';
 import type {CharacterStatus} from '@/types/api';
+import {useAtomValue} from 'jotai';
+import {useAtom} from 'jotai';
 import {useMemo} from 'react';
 import {TouchableOpacity, View} from 'react-native';
 import Card from '../../../../../components/ui/Card';
@@ -24,9 +27,12 @@ const CharacterListItem = ({
 	image,
 	onPress,
 }: CharacterListItemProps) => {
+	const {likedCharacters} = useAtomValue(likedCharactersAtom);
+	const [, toggleLike] = useAtom(likedCharactersActions.like);
 	const isLiked = useMemo(() => {
-		return false;
-	}, [characterId]);
+		if (!likedCharacters) return false;
+		return likedCharacters.includes(characterId);
+	}, [characterId, likedCharacters]);
 
 	return (
 		<TouchableOpacity onPress={onPress}>
@@ -43,13 +49,14 @@ const CharacterListItem = ({
 							text={'Like'}
 							icon={
 								isLiked ? (
-									<Star variant={'contained'} color={theme.colors.accent} />
+									<StarContained color={theme.colors.accent} />
 								) : (
-									<Star variant={'outlined'} color={theme.colors.primary} />
+									<StarOutlined color={theme.colors.primary} />
 								)
 							}
 							variant="outlined"
 							pressed={isLiked}
+							onPress={() => toggleLike(characterId)}
 						/>
 					}
 				/>
