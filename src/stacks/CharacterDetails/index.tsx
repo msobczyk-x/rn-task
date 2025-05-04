@@ -7,15 +7,15 @@ import {CharacterDetailsScreen} from './screens';
 const Stack = createNativeStackNavigator<CharacterDetailsStackParamList>();
 
 export const CharacterDetailsStack = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        options={{
-          headerShown: false,
-        }}
-        name={CharacterDetailsStackRoutes.CharacterDetailsScreen}
-        component={CharacterDetailsScreen}
-      />
-    </Stack.Navigator>
-  );
+	return (
+		<Stack.Navigator>
+			<Stack.Screen
+				options={{
+					headerShown: false,
+				}}
+				name={CharacterDetailsStackRoutes.CharacterDetailsScreen}
+				component={CharacterDetailsScreen}
+			/>
+		</Stack.Navigator>
+	);
 };

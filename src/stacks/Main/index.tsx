@@ -10,35 +10,35 @@ import {MainStackRoutes} from './Main.routes';
 const Tab = createNativeStackNavigator();
 const filtersStore = createStore();
 export const MainStack = () => {
-  return (
-    <Provider store={filtersStore}>
-      <Tab.Navigator
-        screenOptions={{
-          animation: 'simple_push',
-        }}
-        layout={({children}) => (
-          <View style={styles.layoutContainer}>
-            <Header />
-            {children}
-          </View>
-        )}>
-        <Tab.Screen
-          name={MainStackRoutes.TabNavigationStack}
-          component={TabNavigationStack}
-          options={{headerShown: false}}
-        />
-        <Tab.Screen
-          name={MainStackRoutes.CharacterDetailsStack}
-          component={CharacterDetailsStack}
-          options={{headerShown: false}}
-        />
-      </Tab.Navigator>
-    </Provider>
-  );
+	return (
+		<Provider store={filtersStore}>
+			<Tab.Navigator
+				screenOptions={{
+					animation: 'simple_push',
+				}}
+				layout={({children}) => (
+					<View style={styles.layoutContainer}>
+						<Header />
+						{children}
+					</View>
+				)}>
+				<Tab.Screen
+					name={MainStackRoutes.TabNavigationStack}
+					component={TabNavigationStack}
+					options={{headerShown: false}}
+				/>
+				<Tab.Screen
+					name={MainStackRoutes.CharacterDetailsStack}
+					component={CharacterDetailsStack}
+					options={{headerShown: false}}
+				/>
+			</Tab.Navigator>
+		</Provider>
+	);
 };
 
 const styles = StyleSheet.create({
-  layoutContainer: {
-    flex: 1,
-  },
+	layoutContainer: {
+		flex: 1,
+	},
 });

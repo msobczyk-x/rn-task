@@ -4,16 +4,16 @@ import type {CharacterDetailsStackParamList} from '../CharacterDetails/Character
 import type {TabNavigationStackParamList} from '../TabNavigation/TabNavigation.routes';
 
 export type MainStackParamList = {
-  TabNavigationStack: NavigatorScreenParams<TabNavigationStackParamList>;
-  CharacterDetailsStack: NavigatorScreenParams<CharacterDetailsStackParamList>;
+	TabNavigationStack: NavigatorScreenParams<TabNavigationStackParamList>;
+	CharacterDetailsStack: NavigatorScreenParams<CharacterDetailsStackParamList>;
 };
 
 export type MainStackNavigationProp =
-  NativeStackNavigationProp<MainStackParamList>;
+	NativeStackNavigationProp<MainStackParamList>;
 
 export const MainStackRoutes: {
-  [route in keyof MainStackParamList]: route;
+	[route in keyof MainStackParamList]: route;
 } = {
-  TabNavigationStack: 'TabNavigationStack',
-  CharacterDetailsStack: 'CharacterDetailsStack',
+	TabNavigationStack: 'TabNavigationStack',
+	CharacterDetailsStack: 'CharacterDetailsStack',
 };

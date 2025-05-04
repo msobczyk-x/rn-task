@@ -1,16 +1,16 @@
 import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 export type CharacterDetailsStackParamList = {
-  CharacterDetailsScreen: {
-    characterId: number;
-  };
+	CharacterDetailsScreen: {
+		characterId: number;
+	};
 };
 
 export type CharacterDetailsStackNavigationProp =
-  NativeStackNavigationProp<CharacterDetailsStackParamList>;
+	NativeStackNavigationProp<CharacterDetailsStackParamList>;
 
 export const CharacterDetailsStackRoutes: {
-  [route in keyof CharacterDetailsStackParamList]: route;
+	[route in keyof CharacterDetailsStackParamList]: route;
 } = {
-  CharacterDetailsScreen: 'CharacterDetailsScreen',
+	CharacterDetailsScreen: 'CharacterDetailsScreen',
 };
