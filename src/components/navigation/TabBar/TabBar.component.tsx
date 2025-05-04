@@ -43,7 +43,7 @@ const TabBar = ({state, descriptors, navigation}: TabBarProps) => {
 						style={[
 							styles.tabItem,
 							isFocused && styles.activeTabItem,
-							{paddingBottom: insets.bottom},
+							{paddingBottom: insets.bottom || 16},
 						]}>
 						{icon ? icon() : null}
 						<Typography variant="buttonText" style={styles.tabLabel}>
