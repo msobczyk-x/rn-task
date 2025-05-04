@@ -6,6 +6,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {MainStack} from './src/stacks/Main';
 
 const queryClient = new QueryClient();
+
 function App(): React.JSX.Element {
 	return (
 		<SafeAreaProvider>

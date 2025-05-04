@@ -16,6 +16,9 @@ export const styles = StyleSheet.create({
 	},
 	input: {
 		flex: 1,
+		includeFontPadding: false,
+		paddingTop: 0,
+		paddingBottom: 0,
 		color: theme.colors.darkGreen,
 		...theme.fonts.bodyText,
 	},
