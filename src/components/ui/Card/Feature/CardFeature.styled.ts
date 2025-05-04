@@ -17,5 +17,6 @@ export const styles = StyleSheet.create({
 		color: theme.colors.darkGreen,
 		flex: 1,
 		flexShrink: 1,
+		textTransform: 'capitalize',
 	},
 });

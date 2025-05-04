@@ -13,7 +13,7 @@ type TabBarProps = {
 const TabBar = ({state, descriptors, navigation}: TabBarProps) => {
 	const insets = useSafeAreaInsets();
 	return (
-		<View style={[styles.container, {paddingBottom: insets.bottom}]}>
+		<View style={[styles.container]}>
 			{state.routes.map((route: any, index: any) => {
 				const {options} = descriptors[route.key];
 				const label = options.tabBarLabel || options.title || route.name;
@@ -40,7 +40,11 @@ const TabBar = ({state, descriptors, navigation}: TabBarProps) => {
 						accessibilityLabel={options.tabBarAccessibilityLabel}
 						testID={options.tabBarTestID}
 						onPress={onPress}
-						style={[styles.tabItem, isFocused && styles.activeTabItem]}>
+						style={[
+							styles.tabItem,
+							isFocused && styles.activeTabItem,
+							{paddingBottom: insets.bottom},
+						]}>
 						{icon ? icon() : null}
 						<Typography variant="buttonText" style={styles.tabLabel}>
 							{label}

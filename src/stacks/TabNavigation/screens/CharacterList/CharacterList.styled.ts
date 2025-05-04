@@ -10,7 +10,9 @@ export const styles = StyleSheet.create({
 		height: 24,
 	},
 	listContainer: {
-		padding: 16,
+		paddingHorizontal: 16,
+		paddingTop: 0,
+		paddingBottom: 16,
 	},
 	list: {
 		backgroundColor: theme.colors.background,
