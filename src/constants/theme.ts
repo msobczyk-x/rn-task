@@ -1,6 +1,5 @@
 import {calculateLetterSpacing, calculateLineHeight} from '@/utils/styles';
 import type {TextStyle} from 'react-native';
-import {Platform} from 'react-native';
 
 export type FontVariant =
 	| 'labelSmall'
@@ -33,7 +32,7 @@ export const colors: Record<ColorVariant, string> = {
 
 const fonts: Record<FontVariant, TextStyle> = {
 	labelSmall: {
-		fontFamily: 'DMMono',
+		fontFamily: 'DMMono-Medium',
 		fontSize: 12,
 		lineHeight: calculateLineHeight(12, 0),
 		fontWeight: 500,
@@ -41,7 +40,7 @@ const fonts: Record<FontVariant, TextStyle> = {
 		letterSpacing: calculateLetterSpacing(12, 8),
 	},
 	labelMedium: {
-		fontFamily: 'DMMono',
+		fontFamily: 'DMMono-Medium',
 		fontSize: 14,
 		lineHeight: calculateLineHeight(14, 0),
 		fontWeight: 500,
@@ -49,29 +48,29 @@ const fonts: Record<FontVariant, TextStyle> = {
 		letterSpacing: calculateLetterSpacing(14, 0),
 	},
 	buttonText: {
-		fontFamily: 'DMMono',
+		fontFamily: 'DMMono-Regular',
 		fontSize: 14,
 		lineHeight: calculateLineHeight(14, 0),
+
 		fontWeight: 400,
 		textTransform: 'uppercase',
-		letterSpacing: calculateLetterSpacing(14, 0),
 	},
 	bodyText: {
-		fontFamily: 'Inter',
+		fontFamily: 'Inter-Regular',
 		fontSize: 16,
 		lineHeight: calculateLineHeight(16, 0),
 		fontWeight: 400,
 		letterSpacing: calculateLetterSpacing(16, -2),
 	},
 	bodyTextSmall: {
-		fontFamily: 'Inter',
+		fontFamily: 'Inter-Regular',
 		fontSize: 12,
 		lineHeight: calculateLineHeight(12, 0),
 		fontWeight: 400,
 		letterSpacing: calculateLetterSpacing(12, -2),
 	},
 	heading: {
-		fontFamily: 'Inter',
+		fontFamily: 'Inter-Medium',
 		fontWeight: 500,
 		fontSize: 36,
 		lineHeight: calculateLineHeight(36, 0),
@@ -81,19 +80,15 @@ const fonts: Record<FontVariant, TextStyle> = {
 
 const shadows = {
 	cardShadow: {
-		...Platform.select({
-			ios: {
-				shadowColor: '#224229',
-				shadowOffset: {width: 4, height: 4},
-				shadowOpacity: 1,
-				shadowRadius: 0,
+		boxShadow: [
+			{
+				color: colors.primary,
+				offsetX: 4,
+				offsetY: 4,
+				blurRadius: 0,
+				spreadDistance: 0,
 			},
-			android: {
-				elevation: 6,
-				shadowColor: '#224229',
-				outlineColor: '#224229',
-			},
-		}),
+		],
 	},
 };
 
